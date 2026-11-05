@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--  Google Fonts -->
+  <!-- Sora -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Manrope -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!--  FOUC solution for theme  -->
+  <script>
+    const initialTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  
+    if (
+      initialTheme === 'dark' ||
+      ((!initialTheme || initialTheme === 'system') && systemPrefersDark)
+    ) {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
+
+  <link rel="stylesheet" href="dist/output.css">
+  <title>Theme toggle</title>
+</head>
+
+<body class="box-border flex flex-col  bg-white dark:bg-[#030712]">
+  <!-- Navbar -->
+  <nav class="sticky top-0 z-20 border-b border-b-gray-800 bg-white dark:bg-[#030712] dark:border-b-[#374151]">
+
+    <!-- Flex Container -->
+    <div class="container mx-auto flex items-center p-4 xl:p-7">
+
+      <!-- Logo -->
+      <div class="flex-2 flex justify-start">
+        <span class="flex-none font-sora text-4xl font-extrabold tracking-tight animate-slow-slide dark:text-white">
+          vehgoo
+        </span>
+      </div>
+
+      <!-- Hamburger Button -->
+      <div id="menu-btn" class="cursor-pointer text-black dark:text-[#C9C9CE] xl:hidden">
+        <svg width="75px" height="75px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+          <rect width="24" height="24" fill="none" />
+          <path d="M6 12H18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M6 15.5H18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M6 8.5H18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+
+        </svg>
+      </div>
+
+      <!-- Desktop Menu Items -->
+      <ul class="ml-12 hidden xl:flex xl:flex-none xl:gap-10 text-2xl dark:text-white font-manrope font-semibold">
+        <li>Home</li>
+        <li>Services</li>
+        <li>How it works</li>
+        <li>Track Order</li>
+        <li>About Us</li>
+      </ul>
+
+      <!-- Desktop Button -->
+      <div class="hidden xl:flex-auto xl:flex justify-end">
+        <button class="flex-none font-manrope text-2xl bg-indigo-500 px-7 py-3 text-white rounded-xl font-bold">
+          Book a Delivery
+        </button>
+      </div>
+
+    </div>
+  </nav>
+
+
+  <!-- Side Navigation -->
+  <div id="side-nav"
+    class="sm:pl-3 fixed inset-y-0 right-0 z-40 w-full sm:w-3/5 translate-x-full transform bg-white dark:bg-[#0D0D0D] dark:border-l dark:border-[#374151] shadow-xl transition-transform duration-600 ease-in-out xl:hidden">
+
+    <!-- Close Button -->
+    <div class="flex justify-start p-4">
+      <button id="close-btn" class="cursor-pointer text-4xl dark:text-white" aria-label="Close navigation">
+        &times;
+      </button>
+    </div>
+
+    <!-- Sidebar Menu Items -->
+    <ul class="flex flex-col gap-7 sm:gap-9 p-6 pt-4 text-xl dark:text-white font-manrope font-semibold">
+      <li>Home</li>
+      <li>Services</li>
+      <li>How it works</li>
+      <li>Track Order</li>
+      <li>About Us</li>
+    </ul>
+
+    <!-- Sidebar Button -->
+    <div class="px-6 pt-5">
+      <button class="font-manrope text-xl bg-indigo-500 px-7 py-3 text-white rounded-xl font-bold">
+        Book a Delivery
+      </button>
+    </div>
+
+  </div>
+
+  <!-- Content -->
+  <main class="mx-auto mb-12 mt-8 w-full">
+    <div class="grid grid-cols-1 gap-8 px-10 py-8 sm:gap-12 sm:px-28 lg:grid-cols-2 lg:px-32 lg:pt-32 lg:pb-8 xl:gap-7">
+
+      <div class="gallery-card">
+        <img src="assets/icons/undraw_take-out-boxes_n094.svg" alt="take out boxes" class="w-1/2">
+      </div>
+
+      <div class="gallery-card">
+        <img src="assets/icons/undraw_logistics_8vri.svg" alt="logistics" class="w-1/2">
+      </div>
+
+      <div class="gallery-card lg:col-span-2">
+        <img src="assets/icons/undraw_delivery-truck_mjui.svg" alt="deliver-truck" class="w-1/2">
+      </div>
+
+      <div class="gallery-card">
+        <img src="assets/icons/undraw_deploy-globally_2k9s.svg" alt="worldwide-delivery" class="w-1/2">
+      </div>
+
+      <div class="gallery-card">
+        <img src="assets/icons/undraw_heavy-lifting_d753.svg" alt="heavy-lifting" class="w-1/2">
+      </div>
+
+      <div class="gallery-card lg:col-span-2">
+        <img src="assets/icons/undraw_location-tracking_q3yd.svg" alt="live-location" class="w-1/2">
+      </div>
+
+    </div>
+  </main>
+
+  <main class="mx-auto mb-16 mt-8 w-full">
+    <div class="grid grid-cols-1 gap-8 px-10 py-8 sm:gap-12 sm:px-28 lg:grid-cols-2 lg:px-32 lg:pt-32 lg:pb-8 xl:gap-7">
+
+      <div class="gallery-card">
+        <img src="assets/icons/undraw_take-out-boxes_n094.svg" alt="take out boxes" class="w-1/2">
+      </div>
+
+      <div class="gallery-card">
+        <img src="assets/icons/undraw_logistics_8vri.svg" alt="logistics" class="w-1/2">
+      </div>
+
+      <div class="gallery-card lg:col-span-2">
+        <img src="assets/icons/undraw_delivery-truck_mjui.svg" alt="deliver-truck" class="w-1/2">
+      </div>
+
+      <div class="gallery-card">
+        <img src="assets/icons/undraw_deploy-globally_2k9s.svg" alt="worldwide-delivery" class="w-1/2">
+      </div>
+
+      <div class="gallery-card">
+        <img src="assets/icons/undraw_heavy-lifting_d753.svg" alt="heavy-lifting" class="w-1/2">
+      </div>
+
+      <div class="gallery-card lg:col-span-2">
+        <img src="assets/icons/undraw_location-tracking_q3yd.svg" alt="live-location" class="w-1/2">
+      </div>
+
+    </div>
+  </main>
+
+
+  <!-- Footer -->
+  <footer class="mt-auto border-t border-white/10 dark:border-t-[#374151] bg-[#030712] text-white">
+    <div class="mx-auto max-w-7xl px-12 sm:px-32 lg:px-18">
+
+      <div class="grid grid-cols-2 gap-x-8 gap-y-16 py-12 lg:grid-cols-3 lg:gap-y-3 lg:py-30 font-manrope">
+        <div>
+          <h3 class="text-xl lg:text-3xl font-semibold">Company</h3>
+          <ul class="mt-8 space-y-6 text-md lg:mt-6 lg:space-y-4 lg:text-2xl lg:font-semibold">
+            <li><a href="#" class="hover:text-sky-400">About Us</a></li>
+            <li><a href="#" class="hover:text-sky-400">Our Services</a></li>
+            <li><a href="#" class="hover:text-sky-400">Careers</a></li>
+            <li><a href="#" class="hover:text-sky-400">Testimonials</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-semibold lg:text-3xl">Our Services</h3>
+          <ul class="mt-8 space-y-6 text-md lg:mt-6 lg:space-y-4 lg:text-2xl lg:font-semibold">
+            <li><a href="#" class="hover:text-sky-400">Document Delivery</a></li>
+            <li><a href="#" class="hover:text-sky-400">Parcel Delivery</a></li>
+            <li><a href="#" class="hover:text-sky-400">Grocery Delivery</a></li>
+            <li><a href="#" class="hover:text-sky-400">Same-Day Delivery</a></li>
+          </ul>
+        </div>
+
+        <div class="col-span-2 lg:col-span-1">
+          <h3 class="text-xl lg:text-3xl font-semibold">Support</h3>
+          <ul class="mt-8 space-y-6 text-md lg:mt-6 lg:space-y-4 lg:text-2xl lg:font-semibold">
+            <li><a href="#" class="hover:text-sky-400">Track Your Order</a></li>
+            <li><a href="#" class="hover:text-sky-400">Contact Us</a></li>
+            <li><a href="#" class="hover:text-sky-400">Help Center</a></li>
+            <li><a href="#" class="hover:text-sky-400">FAQs</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="flex-2 flex justify-start">
+        <span class="flex-none font-sora text-4xl xl:text-5xl font-extrabold tracking-tight pb-8">
+          vehgoo
+        </span>
+      </div>
+
+
+      <span id="theme-box"
+        class="inline-flex items-center gap-4 py-2 px-4 mb-5 bg-white/5 backdrop-blur-md rounded-full border border-white/10">
+
+        <span class="theme-button">
+          <svg id="system-theme" class="size-7 cursor-pointer" xmlns="http://www.w3.org/2000/svg"
+            width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-monitor preview-icon">
+            <rect width="20" height="14" x="2" y="3" rx="2" />
+            <line x1="8" x2="16" y1="21" y2="21" />
+            <line x1="12" x2="12" y1="17" y2="21" />
+          </svg>
+        </span>
+
+
+        <span class="theme-button">
+          <svg id="light-theme" class="size-7 cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" class="lucide lucide-sun preview-icon">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2" />
+            <path d="M12 20v2" />
+            <path d="m4.93 4.93 1.41 1.41" />
+            <path d="m17.66 17.66 1.41 1.41" />
+            <path d="M2 12h2" />
+            <path d="M20 12h2" />
+            <path d="m6.34 17.66-1.41 1.41" />
+            <path d="m19.07 4.93-1.41 1.41" />
+          </svg>
+        </span>
+
+
+        <span class="theme-button">
+          <svg id="dark-theme" class="size-7 cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" class="lucide lucide-moon-star preview-icon">
+            <path d="M18 5h4" />
+            <path d="M20 3v4" />
+            <path
+              d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401" />
+          </svg>
+        </span>
+
+      </span>
+
+
+      <div
+        class="flex flex-col gap-8 border-t border-white/14 py-12 text-xl text-gray-400 lg:flex-row lg:items-center lg:gap-6 lg:py-8 lg:text-sm font-manrope">
+        <p>Copyright &copy; 2026 Vehgoo Delivery Services</p>
+        <a href="#" class="hover:text-white">Trademark Policy</a>
+      </div>
+
+
+  </footer>
+
+  <script src="src/js/toggle.js" defer></script>
+  <!-- '.. )  -->
+</body>
+
+</html>

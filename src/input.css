@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sora: "Sora", sans-serif;
+  --font-manrope: "Manrope", sans-serif;
+
+  --animate-slow-slide: slideInFromLeft 1s ease-out forwards;
+
+  @keyframes slideInFromLeft {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+}
+
+@layer components {
+  .gallery-card {
+    @apply flex items-center justify-center rounded-lg bg-indigo-500 p-6 text-white xl:rounded-2xl dark:border dark:border-[#96969696];
+  }
+
+  .theme-box {
+    @apply ring-3 ring-indigo-500 rounded-full;
+  }
+
+  .theme-button {
+    @apply rounded-full transition-all duration-250 ease-in;
+  }
+
+  .active-button {
+    @apply rounded-full border-2 border-white/15 p-4;
+    @apply transition-all duration-300 ease-in-out;
+  }
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
