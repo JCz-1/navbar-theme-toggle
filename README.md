@@ -29,12 +29,15 @@ Vehgoo is a frontend portfolio project designed to demonstrate responsive web de
 
 
 
-![Vehgoo desktop view](screenshots/desktop.png)
+![Webpage Screen view](assets/images/screen-view-four.jpg)
+
+![Webpage Screen view](assets/images/screen-view-five.jpg)
+
+![Webpage Screen view](assets/images/screen-view-three.jpg)
+
+![Webpage Screen view](assets/images/screen-view-two.jpg)
 
 
-
-
-![Vehgoo mobile view](screenshots/mobile.png)
 
 
 
